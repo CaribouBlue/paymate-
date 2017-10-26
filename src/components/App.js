@@ -17,9 +17,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      dayList: [],
-    };
+    this.state = {};
 
     this.dashRender = this.dashRender.bind(this);
   }
@@ -27,17 +25,6 @@ class App extends React.Component {
   componentWillMount() {
     getUserTransactions(this.props.user.id);
     getGroup(this.props.user.groupId, this.props.user.id);
-  }
-
-  getdayList() {
-    const dayList = {};
-    Object.values(this.props.transactions).forEach((t) => dayList[t.date] = null);
-    return dayList;
-  }
-
-  componentDidUpdate(prevProps, prevState) {
-    if (JSON.stringify(prevProps.transactions) !== JSON.stringify(this.props.transactions))
-      this.setState({ dayList: this.getdayList() });
   }
 
   dashRender(routerProps) {
@@ -53,7 +40,6 @@ class App extends React.Component {
   }
 
   render() {
-    this.getdayList();
     return (
       <Router>
         <div>

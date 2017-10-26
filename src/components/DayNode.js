@@ -8,7 +8,9 @@ const DayNode = props => (
         props.transactions ? props.transactions.map(t => 
           <li
             key={_.uniqueId()}
-          >{t.amount}</li>
+          >
+            {t.amount}
+          </li>
         ) : null
       }
     </ul>
