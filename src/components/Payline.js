@@ -1,18 +1,40 @@
 import React from 'react';
+import _ from 'lodash';
+import { DayNode } from './_index';
 
-const Payline = props => (
-  <div>
-    <pre>
-      {(() => {
-        let arr = [];
-        for (let key in props.transactions) {
-          if (props.transactions[key].payeeId === props.member.id || props.transactions[key].payerId === props.member.id)
-            arr.push(props.transactions[key]);
-        }
-        return JSON.stringify(arr);
-      })()}
-    </pre>
-  </div>
-);
+class Payline extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+    };
+  }
+
+  renderDayNodes() {
+    const nodes = [];
+    for (let date in this.props.transactions) {
+      nodes.push(
+        <DayNode
+          date={date}
+          transactions={this.props.transactions[date]}
+          key={_.uniqueId()}
+        />
+      );
+    }
+    return nodes;
+  }
+
+  render() {
+    return (
+      <div
+        style={{
+          display: "flex",
+        }}
+      >
+        {this.renderDayNodes()}
+      </div>
+    );
+  }
+};
 
 export default Payline;

@@ -26,7 +26,6 @@ const defaultState = [
 const group = (prevState = defaultState, action) => {
   switch (action.type) {
     case 'ADD_MEMBERS' : {
-      console.log(action.payload);
       return [ ...prevState, ...action.payload ];
     }
     default: {

@@ -17,7 +17,11 @@ class App extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {};
+    this.state = {
+      dayList: [],
+    };
+
+    this.dashRender = this.dashRender.bind(this);
   }
 
   componentWillMount() {
@@ -25,7 +29,31 @@ class App extends React.Component {
     getGroup(this.props.user.groupId, this.props.user.id);
   }
 
+  getdayList() {
+    const dayList = {};
+    Object.values(this.props.transactions).forEach((t) => dayList[t.date] = null);
+    return dayList;
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (JSON.stringify(prevProps.transactions) !== JSON.stringify(this.props.transactions))
+      this.setState({ dayList: this.getdayList() });
+  }
+
+  dashRender(routerProps) {
+    return (
+      <Dash 
+        {...routerProps}
+        group={this.props.group} 
+        transactions={this.props.transactions}
+        dayList={this.state.dayList}
+        userId={this.props.user.id}
+      />
+    );
+  }
+
   render() {
+    this.getdayList();
     return (
       <Router>
         <div>
@@ -34,23 +62,11 @@ class App extends React.Component {
           <Switch>
             <Route 
               path="/app/dash" 
-              render={(routerProps) => 
-                <Dash 
-                  {...routerProps}
-                  group={this.props.group} 
-                  transactions={this.props.transactions}
-                />
-              }
+              render={this.dashRender}
             />
             <Route 
               path="*" 
-              render={(routerProps) => 
-                <Dash 
-                  {...routerProps} 
-                  group={this.props.group}
-                  transactions={this.props.transactions} 
-                />
-              } 
+              render={this.dashRender} 
             />
           </Switch>
         </div>
