@@ -47,13 +47,17 @@ class ActionBar extends React.Component {
     }
     else 
       return (
-        <div>
+        <div
+          id="action-bar"
+        >
           <div
+            id="pay-button"
             onClick={(e) => this.selectActionType(e, 'pay')}
           >
             Pay
           </div>
           <div
+            id="req-button"
             onClick={(e) => this.selectActionType(e, 'req')}
           >
             Request

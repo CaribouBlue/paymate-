@@ -6,9 +6,10 @@ class PayForm extends React.Component {
     super(props);
 
     this.state = {
-      amount: '0.00',
+      amount: '$0.00',
       date: this.getToday(),
       members: {},
+      name: '',
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -37,9 +38,9 @@ class PayForm extends React.Component {
     let month = d.getMonth() + 1;
     let day = d.getDate();
     let year = d.getYear() + 1900;
-    if (month.length < 2)
+    if (month < 10)
       month = '0' + month;
-    if (day.lnegth < 2) {
+    if (day < 10) {
       day = '0' + day;
     }
     return `${year}-${month}-${day}`;
@@ -81,6 +82,8 @@ class PayForm extends React.Component {
         delete members[id];
         this.setState({ members });
       }
+    } if (name === 'amount') {
+      this.setState({ [name]: '$' + value.replace(/[$]/g, '') });
     } else {
       this.setState({ [name]: value });
     }
@@ -106,38 +109,64 @@ class PayForm extends React.Component {
 
   render() {
     return (
-      <div>
-        <div>
+      <div
+        id="action-form"
+      >
+        <div
+          id="form-buttons"
+        >
           <div
+            id="submit"
             onClick={(e) => this.handleValidations(e, this.handleSubmit)}
           >
             Submit
           </div>
           <div
+            id="cancel"
             onClick={this.props.selectActionType}
           >
             Cancel
           </div>
         </div>
+        <div
+          id="checkboxes"
+        >
+          {this.renderMemberCheckboxes()}
+        </div>
         <form
           onSubmit={this.handleValidations}
         >
-          <div>
-            {this.renderMemberCheckboxes()}
+          <div
+            className="date-box"
+          >
+            <input
+              type="date"
+              name="date"
+              onChange={this.handleChange}
+              value={this.state.date}
+            />
           </div>
-          $
-          <input
-            type="text"
-            name="amount"
-            onChange={this.handleChange}
-            value={this.state.amount}
-          />
-          <input
-            type="date"
-            name="date"
-            onChange={this.handleChange}
-            value={this.state.date}
-          />
+          <div
+            className="name-box"
+          >
+            <input
+              type="text"
+              name="name"
+              placeholder="What for?"
+              onChange={this.handleChange}
+              value={this.state.name}
+            />
+          </div>
+          <div
+            className="amount-box"
+          >
+            <input
+              type="text"
+              name="amount"
+              onChange={this.handleChange}
+              value={this.state.amount}
+            />
+          </div>
         </form>
       </div>
     );

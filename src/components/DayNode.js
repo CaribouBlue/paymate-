@@ -8,6 +8,9 @@ const DayNode = props => (
         props.transactions ? props.transactions.map(t => 
           <li
             key={_.uniqueId()}
+            style={{
+              color: t.payout ? 'red' : 'green',
+            }}
           >
             {t.amount}
           </li>

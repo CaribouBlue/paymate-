@@ -16,6 +16,7 @@ import {
 } from 'react-router-dom';
 import { App } from './components/_index';
 import registerServiceWorker from './registerServiceWorker';
+import './styles/output/app.css';
 
 
 const masterReducer = combineReducers({ user, transactions, group });

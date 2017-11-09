@@ -43,8 +43,8 @@ class App extends React.Component {
     return (
       <Router>
         <div>
-          <ActionBar group={this.props.group} userId={this.props.user.id}/>
           <NavBar />
+          <ActionBar group={this.props.group} userId={this.props.user.id}/>
           <Switch>
             <Route 
               path="/app/dash" 

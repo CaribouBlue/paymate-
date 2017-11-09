@@ -38,6 +38,16 @@ class Dash extends React.Component {
       return null;
 
     let transactions = Object.values(this.props.transactions).reduce((memo, t) => {
+      if (t.type === 'pay' && t.payerId === this.props.userId) {
+          // I pay them
+          t.payout = true;
+      } else if (t.type === 'req' && t.payeeId !== this.props.userId){
+          // They requested I pay them
+          t.payout = true;
+      } else {
+        // Them pay me OR I request they pay me
+        t.payout = false;
+      }
       const id = t.payeeId === this.props.userId ? t.payerId : t.payeeId;
       const date = t.date;
       if (!memo[id]) 
@@ -47,6 +57,7 @@ class Dash extends React.Component {
       memo[id][date].push(t);
       return memo;
     }, {});
+    
     this.setState({ transactionsById: transactions });
   }
 
@@ -57,6 +68,10 @@ class Dash extends React.Component {
           this.props.group.map(member => member.id === this.props.userId ? null :
             <div
               key={_.uniqueId()}
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+              }}
             >
               <LineHeader
                 member={member}

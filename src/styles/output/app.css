@@ -1,0 +1,151 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+#action-bar {
+  display: flex;
+  justify-content: center;
+  margin-top: 2.5vmin;
+  margin-bottom: 2.5vmin; }
+  #action-bar div {
+    background-color: white;
+    font-size: 5vmin;
+    width: 30vmin;
+    padding-top: 1.5vmin;
+    padding-bottom: 1.5vmin;
+    text-align: center;
+    border: 2px solid;
+    cursor: pointer; }
+  #action-bar #pay-button {
+    margin-right: 10vmin;
+    color: red; }
+  #action-bar #pay-button:hover {
+    color: white;
+    border-color: red;
+    background-color: red; }
+  #action-bar #req-button {
+    margin-left: 10vmin;
+    color: green; }
+  #action-bar #req-button:hover {
+    color: white;
+    border-color: green;
+    background-color: green; }
+
+#action-form {
+  display: flex;
+  justify-content: center;
+  min-height: 8vmin;
+  margin-top: 2vmin;
+  margin-bottom: 2vmin; }
+  #action-form #form-buttons {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 0.5;
+    min-width: 10vmin;
+    font-size: 2.5vmin;
+    cursor: pointer; }
+    #action-form #form-buttons div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-grow: 1;
+      border: 2px solid; }
+    #action-form #form-buttons #submit {
+      color: green; }
+    #action-form #form-buttons #submit:hover {
+      color: white;
+      border-color: green;
+      background-color: green; }
+    #action-form #form-buttons #cancel {
+      color: red; }
+    #action-form #form-buttons #cancel:hover {
+      color: white;
+      border-color: red;
+      background-color: red; }
+  #action-form form {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-around;
+    flex-grow: 2;
+    padding: 1vmin;
+    padding: 1vmin;
+    border: 1px solid lightgrey;
+    border-right-width: 0px;
+    border-left-width: 0px; }
+    #action-form form div {
+      display: flex;
+      align-items: center; }
+      #action-form form div input {
+        box-sizing: border-box;
+        height: 4vmin;
+        padding: 0.5vmin;
+        width: 100%;
+        font-size: 2vmin; }
+    #action-form form .amount-box {
+      width: 20%; }
+    #action-form form .name-box {
+      width: 50%; }
+    #action-form form .date-box {
+      width: 25%; }
+  #action-form #checkboxes {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: space-around;
+    font-size: 2.5vmin;
+    padding: 1vmin;
+    padding-left: 4vmin;
+    padding-right: 4vmin;
+    border: 1px solid lightgrey;
+    border-right-width: 0px;
+    border-left-width: 0px; }
+    #action-form #checkboxes div {
+      display: flex;
+      align-items: center; }
+      #action-form #checkboxes div input {
+        cursor: pointer; }
+
+/*# sourceMappingURL=app.css.map */

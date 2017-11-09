@@ -7,7 +7,7 @@ class LineHeader extends React.Component {
     super(props);
 
     this.state = {
-      balance: 0,
+      balance: '$0.00',
     };
   }
 
@@ -30,24 +30,29 @@ class LineHeader extends React.Component {
     ledger.forEach(t => {
       if (t.type === 'pay' && t.payerId === this.props.userId) {
         // I pay them ---> balance goes down
-        t.amount = -Math.abs(t.amount);
-      }
-      if (t.type === 'req' && t.payeeId === this.props.userId){
+        balance += -Math.abs(t.amount);
+      } else if (t.type === 'req' && t.payeeId === this.props.userId){
         // I requested they pay me ---> balance goes down
-        t.amount = -Math.abs(t.amount);
-      }
-      balance += t.amount;
+        balance += -Math.abs(t.amount);
+      } else
+        balance += t.amount;
     });
-    if (balance < 0) balance = '-$' + Math.abs(balance.toFixed(2));
-    else balance = '$' + balance;
+    if (balance < 0) balance = '-$' + Math.abs(balance).toFixed(2);
+    else balance = '$' + balance.toFixed(2);
     this.setState({ balance });
-
   }
 
   render() {
     return (
-      <div>
-        {`${this.props.member.firstName}: ${this.state.balance}`}
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+        }}
+      >
+        <h1>{this.props.member.firstName}</h1>
+        <h2>{this.state.balance}</h2>
       </div>
     );
   }
