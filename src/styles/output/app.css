@@ -125,11 +125,17 @@ table {
         width: 100%;
         font-size: 2vmin; }
     #action-form form .amount-box {
-      width: 20%; }
+      width: 20%;
+      flex-grow: 1; }
     #action-form form .name-box {
-      width: 50%; }
+      width: 50%;
+      flex-grow: 1;
+      margin-left: 1vmin;
+      margin-right: 1vmin; }
     #action-form form .date-box {
-      width: 25%; }
+      width: 25%;
+      min-width: 19vmin;
+      max-width: 19vmin; }
   #action-form #checkboxes {
     display: flex;
     flex-direction: column;
@@ -147,5 +153,70 @@ table {
       align-items: center; }
       #action-form #checkboxes div input {
         cursor: pointer; }
+
+#dash {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  flex-grow: 1; }
+  #dash .dash-row {
+    display: flex;
+    flex-grow: 1;
+    margin-top: 0.5vmin;
+    margin-bottom: 0.5vmin; }
+  #dash #dash-footer {
+    display: flex;
+    flex-grow: 0.2; }
+  #dash #dash-header {
+    display: flex;
+    flex-grow: 0.2; }
+
+.line-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-width: 30vmin;
+  background-color: lightgrey; }
+  .line-header h1 {
+    font-size: 2.5vmin;
+    margin-bottom: 1vmin; }
+  .line-header h2 {
+    font-size: 2.5vmin;
+    margin-top: 1vmin; }
+
+.pay-line {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+  overflow-x: auto; }
+
+.pay-line::-webkit-scrollbar {
+  visibility: hidden; }
+
+.day-node {
+  min-width: 30%;
+  min-height: 75%; }
+  .day-node h3 {
+    font-size: 2.2vmin;
+    text-align: center; }
+  .day-node li {
+    font-size: 2vmin;
+    margin-top: 1vmin;
+    text-align: center; }
+
+body {
+  height: 100vh; }
+
+#root {
+  height: 100%; }
+
+#root > div {
+  height: 100%; }
+
+#root > div > div {
+  display: flex;
+  flex-direction: column;
+  height: 100%; }
 
 /*# sourceMappingURL=app.css.map */

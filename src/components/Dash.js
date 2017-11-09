@@ -1,5 +1,6 @@
 import React from 'react';
 import _ from 'lodash';
+import $ from 'jquery';
 import {
   LineHeader,
   Payline,
@@ -12,9 +13,11 @@ class Dash extends React.Component {
     this.state = {
       transactionsById: {},
       dayList: {},
+      paylineScroll: 0,
     };
 
     this.filterTransactions = this.filterTransactions.bind(this);
+    this.paylineScrollHandler = this.paylineScrollHandler.bind(this);
   }
 
   componentWillMount() {
@@ -61,17 +64,25 @@ class Dash extends React.Component {
     this.setState({ transactionsById: transactions });
   }
 
+  paylineScrollHandler(e) {
+    e.preventDefault();
+    $('.pay-line').scrollLeft(e.target.scrollLeft);
+  }
+
   render() {
     return (
-      <div>
+      <div
+        id="dash"
+      >
+        <div
+          id="dash-header"
+        >
+        </div>
         {
           this.props.group.map(member => member.id === this.props.userId ? null :
             <div
+              className="dash-row"
               key={_.uniqueId()}
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-              }}
             >
               <LineHeader
                 member={member}
@@ -81,10 +92,16 @@ class Dash extends React.Component {
               <Payline
                 member={member}
                 transactions={this.state.transactionsById[member.id]}
+                scroll={this.state.paylineScroll}
+                scrollHandler={this.paylineScrollHandler}
               />
             </div>
           )
         }
+        <div
+          id="dash-footer"
+        >
+        </div>
       </div>
     );
   }

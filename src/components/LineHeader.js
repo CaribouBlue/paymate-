@@ -45,11 +45,7 @@ class LineHeader extends React.Component {
   render() {
     return (
       <div
-        style={{
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'center',
-        }}
+        className="line-header"
       >
         <h1>{this.props.member.firstName}</h1>
         <h2>{this.state.balance}</h2>

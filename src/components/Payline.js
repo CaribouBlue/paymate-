@@ -27,9 +27,8 @@ class Payline extends React.Component {
   render() {
     return (
       <div
-        style={{
-          display: "flex",
-        }}
+        onScroll={this.props.scrollHandler}
+        className="pay-line"
       >
         {this.renderDayNodes()}
       </div>

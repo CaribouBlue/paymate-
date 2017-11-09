@@ -2,8 +2,11 @@ import React from 'react';
 import _ from 'lodash';
 
 const DayNode = props => (
-  <div>
-    <ul> {props.date}
+  <div
+    className="day-node"
+  >
+    <h3>{props.date}</h3>
+    <ul>
       {
         props.transactions ? props.transactions.map(t => 
           <li

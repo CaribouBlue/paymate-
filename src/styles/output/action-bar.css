@@ -78,11 +78,17 @@
         width: 100%;
         font-size: 2vmin; }
     #action-form form .amount-box {
-      width: 20%; }
+      width: 20%;
+      flex-grow: 1; }
     #action-form form .name-box {
-      width: 50%; }
+      width: 50%;
+      flex-grow: 1;
+      margin-left: 1vmin;
+      margin-right: 1vmin; }
     #action-form form .date-box {
-      width: 25%; }
+      width: 25%;
+      min-width: 19vmin;
+      max-width: 19vmin; }
   #action-form #checkboxes {
     display: flex;
     flex-direction: column;

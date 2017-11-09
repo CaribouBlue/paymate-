@@ -109,14 +109,20 @@
 
     .amount-box {
       width: 20%;
+      flex-grow: 1;
     }
 
     .name-box {
       width: 50%;
+      flex-grow: 1;
+      margin-left: 1vmin;
+      margin-right: 1vmin;
     }
 
     .date-box {
       width: 25%;
+      min-width: 19vmin;
+      max-width: 19vmin;
     }
 
   }
