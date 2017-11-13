@@ -2,6 +2,10 @@
 @import 'action-bar';
 @import 'dash';
 
+* {
+  box-sizing: border-box;
+}
+
 body {
   height: 100vh;
 }

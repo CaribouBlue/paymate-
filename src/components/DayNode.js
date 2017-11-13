@@ -1,26 +1,40 @@
 import React from 'react';
 import _ from 'lodash';
+import { numToCash } from '../lib/helpers';
 
-const DayNode = props => (
-  <div
-    className="day-node"
-  >
-    <h3>{props.date}</h3>
-    <ul>
-      {
-        props.transactions ? props.transactions.map(t => 
+class DayNode extends React.Component {
+  getListItems() {
+    if (this.props.transactions) {
+      return this.props.transactions
+        .sort((a, b) => b.amount - a.amount)
+        .map((t, i) => 
           <li
             key={_.uniqueId()}
+            className={t.payout ? 'out' : 'in'}
             style={{
-              color: t.payout ? 'red' : 'green',
+              width: (30 + 1.5 * (this.props.transactions.length - i)) + '%',
             }}
           >
-            {t.amount}
+            {numToCash(t.amount, true)}
           </li>
-        ) : null
-      }
-    </ul>
-  </div>
-);
+        );
+    } else {
+      return null;
+    }
+  }
+
+  render() {
+    return (
+      <div
+        className="day-node"
+      >
+        <h3>{this.props.date}</h3>
+        <ul>
+          { this.getListItems() }
+        </ul>
+      </div>
+    );
+  }
+};
 
 export default DayNode;

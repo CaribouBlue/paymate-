@@ -1,11 +1,14 @@
 const handleTransactions = require('./handlers/transactions');
 const handleGroups = require('./handlers/groups');
+const handleAuth = require('./handlers/auth');
 
 const router = require('express').Router();
 
-router.get('/', (req, res, next) => res.send('boo'));
+//router.get('/', (req, res, next) => res.send('boo'));
 
-router.get('/gql', (req, res, next) => res.send('GraphQL End Point'));
+//router.get('/gql', (req, res, next) => res.send('GraphQL End Point'));
+
+router.post('/auth/signup', (req, res, next) => handleAuth.signup(req.body, res));
 
 /* 
   req.body JSON example: { 

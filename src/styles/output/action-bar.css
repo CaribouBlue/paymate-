@@ -1,43 +1,43 @@
 #action-bar {
   display: flex;
   justify-content: center;
-  margin-top: 2.5vmin;
-  margin-bottom: 2.5vmin; }
+  /*  margin-top: 2.5vmin;
+    margin-bottom: 2.5vmin;*/
+  box-shadow: 0px 0px 3px 0px grey; }
   #action-bar div {
-    background-color: white;
-    font-size: 5vmin;
-    width: 30vmin;
+    display: flex;
+    flex: 1 0 50vmin;
+    justify-content: center;
+    border: 1px solid grey;
     padding-top: 1.5vmin;
     padding-bottom: 1.5vmin;
-    text-align: center;
-    border: 2px solid;
+    font-size: 3vmin;
     cursor: pointer; }
+  #action-bar div:hover {
+    background-color: whitesmoke; }
   #action-bar #pay-button {
-    margin-right: 10vmin;
-    color: red; }
-  #action-bar #pay-button:hover {
-    color: white;
-    border-color: red;
-    background-color: red; }
+    color: darkred;
+    border-left-width: 0px;
+    border-right-width: 0.5px; }
   #action-bar #req-button {
-    margin-left: 10vmin;
-    color: green; }
-  #action-bar #req-button:hover {
-    color: white;
-    border-color: green;
-    background-color: green; }
+    color: darkgreen;
+    border-right-width: 0px;
+    border-left-width: 0.5px; }
 
 #action-form {
   display: flex;
   justify-content: center;
   min-height: 8vmin;
-  margin-top: 2vmin;
-  margin-bottom: 2vmin; }
+  /*  margin-top: 2vmin;
+    margin-bottom: 2vmin;*/ }
   #action-form #form-buttons {
     display: flex;
     flex-direction: column;
     flex-grow: 0.5;
     min-width: 10vmin;
+    border: 1px solid lightgrey;
+    border-right-width: 0px;
+    border-left-width: 0px;
     font-size: 2.5vmin;
     cursor: pointer; }
     #action-form #form-buttons div {
@@ -58,37 +58,6 @@
       color: white;
       border-color: red;
       background-color: red; }
-  #action-form form {
-    box-sizing: border-box;
-    display: flex;
-    justify-content: space-around;
-    flex-grow: 2;
-    padding: 1vmin;
-    padding: 1vmin;
-    border: 1px solid lightgrey;
-    border-right-width: 0px;
-    border-left-width: 0px; }
-    #action-form form div {
-      display: flex;
-      align-items: center; }
-      #action-form form div input {
-        box-sizing: border-box;
-        height: 4vmin;
-        padding: 0.5vmin;
-        width: 100%;
-        font-size: 2vmin; }
-    #action-form form .amount-box {
-      width: 20%;
-      flex-grow: 1; }
-    #action-form form .name-box {
-      width: 50%;
-      flex-grow: 1;
-      margin-left: 1vmin;
-      margin-right: 1vmin; }
-    #action-form form .date-box {
-      width: 25%;
-      min-width: 19vmin;
-      max-width: 19vmin; }
   #action-form #checkboxes {
     display: flex;
     flex-direction: column;
@@ -106,5 +75,28 @@
       align-items: center; }
       #action-form #checkboxes div input {
         cursor: pointer; }
+  #action-form #flex-inputs {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-grow: 2;
+    padding: 1vmin;
+    border: 1px solid lightgrey;
+    border-right-width: 0px;
+    border-left-width: 0px; }
+    #action-form #flex-inputs input {
+      height: 4vmin;
+      width: 100%;
+      padding: 0.5vmin;
+      font-size: 2vmin; }
+    #action-form #flex-inputs #name {
+      flex: 1 0 50%;
+      margin-left: 1vmin;
+      margin-right: 1vmin; }
+    #action-form #flex-inputs #amount {
+      flex: 1 0 20%; }
+    #action-form #flex-inputs #date {
+      min-width: 19vmin;
+      max-width: 19vmin; }
 
 /*# sourceMappingURL=action-bar.css.map */

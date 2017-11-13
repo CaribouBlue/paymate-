@@ -6,6 +6,8 @@ import LineHeader from './LineHeader';
 import NavBar from './NavBar';
 import Payline from './Payline';
 import ActionForm from './action-bar/ActionForm';
+import ActionBarView from './action-bar/ActionBarView';
+import ActionFormView from './action-bar/ActionFormView';
 
 export {
   App,
@@ -16,4 +18,6 @@ export {
   NavBar,
   Payline,
   ActionForm,
+  ActionBarView,
+  ActionFormView,
 };

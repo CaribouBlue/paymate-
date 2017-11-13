@@ -1,6 +1,5 @@
 import React from 'react';
-
-
+import { numToCash } from '../lib/helpers';
 
 class LineHeader extends React.Component {
   constructor(props) {
@@ -37,8 +36,7 @@ class LineHeader extends React.Component {
       } else
         balance += t.amount;
     });
-    if (balance < 0) balance = '-$' + Math.abs(balance).toFixed(2);
-    else balance = '$' + balance.toFixed(2);
+    balance = numToCash(balance);
     this.setState({ balance });
   }
 

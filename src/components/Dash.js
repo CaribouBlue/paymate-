@@ -13,7 +13,6 @@ class Dash extends React.Component {
     this.state = {
       transactionsById: {},
       dayList: {},
-      paylineScroll: 0,
     };
 
     this.filterTransactions = this.filterTransactions.bind(this);
@@ -66,7 +65,7 @@ class Dash extends React.Component {
 
   paylineScrollHandler(e) {
     e.preventDefault();
-    $('.pay-line').scrollLeft(e.target.scrollLeft);
+    $('.payline, .last-payline, .first-payline').scrollLeft(e.target.scrollLeft);
   }
 
   render() {
@@ -79,7 +78,7 @@ class Dash extends React.Component {
         >
         </div>
         {
-          this.props.group.map(member => member.id === this.props.userId ? null :
+          this.props.group.map((member, i) => member.id === this.props.userId ? null :
             <div
               className="dash-row"
               key={_.uniqueId()}
@@ -92,8 +91,9 @@ class Dash extends React.Component {
               <Payline
                 member={member}
                 transactions={this.state.transactionsById[member.id]}
-                scroll={this.state.paylineScroll}
                 scrollHandler={this.paylineScrollHandler}
+                last={i === this.props.group.length - 1}
+                first={i === 0}
               />
             </div>
           )
